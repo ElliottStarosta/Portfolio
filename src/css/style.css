@@ -5,6 +5,7 @@
   --nunito: 'Nunito', sans-serif;
   --amulya: 'Amulya', sans-serif;
   --hind: 'Hind', sans-serif;
+  --bebas: 'Bebas Neue', sans-serif;
 
   --primary-color: #1E2A38;
   --accent-color: #e4edf8;
@@ -33,6 +34,7 @@
   /*========== Font weight ==========*/
   --font-regular: 400;
   --font-semi-bold: 600;
+  --font-bold: 900;
 
   /*========== z index ==========*/
   --z-tooltip: 10;

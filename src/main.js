@@ -1,28 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      console.log('Intersection ratio:', entry.intersectionRatio);
-      entry.target.classList.toggle('show', entry.isIntersecting);
-    });
-  }, {
-    rootMargin: '-50px 0px', // Trigger 50px before element enters viewport
-    threshold: 0.01
+// 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  AOS.init({
+    duration: 1000,  // Duration of the animation
+    easing: 'ease-out',
+    once: false  // Ensures the animation runs each time the element enters the viewport
   });
-
-
-  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 });
-
-
-
-// Initialize AOS
-// document.addEventListener('DOMContentLoaded', function () {
-//   AOS.init({
-//     duration: 1000,  // Duration of the animation
-//     easing: 'ease-out',
-//     once: false  // Ensures the animation runs each time the element enters the viewport
-//   });
-// });
 
 
 
@@ -209,7 +194,6 @@ logo.addEventListener('mousemove', (e) => {
     const y = e.clientY - rect.top;
    
     const shadowX = (x/rect.width - 0.5) * 20;
-    const shadowY = (y/rect.height - 0.5) * 20;
    
     logo.style.setProperty('--gradient-x', `${x}px`);
     logo.style.setProperty('--gradient-y', `${y}px`);
@@ -247,4 +231,57 @@ logo.addEventListener('mousemove', (e) => {
 logo.addEventListener('mouseleave', () => {
   logo.style.setProperty('--gradient-x', '50%');
   logo.style.setProperty('--gradient-y', '50%');
+});
+
+
+// About me 
+
+
+document.querySelector('.read-more-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const heroCard = document.querySelector('.hero-card');
+  const btnText = this.querySelector('span');
+  const arrowIcon = this.querySelector('.arrow');
+  
+  heroCard.classList.toggle('expanded');
+  
+  // Toggle button text
+  btnText.textContent = heroCard.classList.contains('expanded') 
+    ? 'Show Less' 
+    : 'Read More About Me';
+  
+  // Toggle arrow icon
+  arrowIcon.classList.toggle('ri-arrow-down-line');
+  arrowIcon.classList.toggle('ri-arrow-up-line');
+});
+
+// Handle timeline item clicks
+document.querySelectorAll('.timeline-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const projectId = this.dataset.project;
+    const projectSection = document.getElementById(projectId);
+    
+    if (projectSection) {
+      projectSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Handle keyword clicks
+document.querySelectorAll('.keyword[data-project]').forEach(keyword => {
+  keyword.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent default link behavior
+    const projectId = this.dataset.project;
+    const projectSection = document.getElementById(projectId);
+    
+    if (projectSection) {
+      projectSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
 });

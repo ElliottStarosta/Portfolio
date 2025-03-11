@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,28 @@
   <link rel="stylesheet" href="src/css/style.css">
 
   <!--============ FONTS ===============-->
-  <link href="https://api.fontshare.com/v2/css?f[]=supreme@400&f[]=nunito@800&f[]=amulya@400&f[]=hind@700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=supreme@400&f[]=nunito@400,800&f[]=amulya@400&f[]=hind@700&f[]=bebas-neue@400&display=swap" rel="stylesheet">
 
 
   <!--============ REMIXICONS ===============-->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"></noscript>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  </noscript>
 
   <!--============ AOS ===============-->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
+  <script defer src="src/animation.js"></script>
 
 </head>
+
 <body>
   <div id="top"></div>
   <header>
-    <a href="#top" class="logo" data-text="Elliott">Elliott</a>
+    <a class="logo" data-text="Elliott">Elliott</a>
     <ul>
       <li><a href="#top" id="home-btn">Home</a></li>
       <li><a href="#about" id="about-btn">About Me</a></li>
@@ -35,43 +41,79 @@
   </header>
 
   <section class="hero">
-  
+
     <div class="hero-content">
-      <div class="hero-card">
+      <div class="hero-card" data-aos="fade-right">
         <div class="text-group">
           <h1 class="greeting">
             <span class="greeting-text">Hey there,</span>
             <span class="name">I'm Elliott<span class="exclamation"> !</span></span>
           </h1>
-          
+
+          <!-- In your hero-card div -->
           <div class="description-box">
             <p class="about-text">
-             I am a passionate 16-year-old software developer from Ottawa, Ontario. I enjoy creating innovative tools that solve real-world problems, making everyday tasks easier for everyone.
+              I am a passionate <span class="keyword">16-year-old software developer</span> from Ottawa, Ontario. 
+              I enjoy creating <span class="keyword">innovative tools</span> that <span class="keyword">solve real-world problems</span>, 
+              making everyday tasks <span class="keyword">easier for everyone</span>.
             </p>
-            
+          
+            <!-- Expanded Content -->
+            <div class="about-expansion">
+              <div class="additional-content">
+                <p class="expanded-text e1" style="--anim-delay: 0.2s">
+                  My coding journey started in grade 5 when I first printed <span class="keyword">"Hello, World!"</span> in Python. From there, I kept pushing myself to build new things—like a GUI-based Tic-Tac-Toe game and a typewriter simulator—just to see how far I could take my ideas. Over time, I got hooked on the problem-solving side of coding, especially in back-end development. One of my favorite projects so far is the <span class="keyword"  data-project="eom-course-recommender">EOM Course Recommender</span>, a Java-based application that helps high school students plan their courses using a machine learning algorithm. It was a fun challenge to create something that could actually help students make better academic decisions.
+                </p>
+                <p class="expanded-text e2" style="--anim-delay: 0.2s">
+                  Beyond coding, I’m active in <a href="https://www.firstinspires.org/robotics/frc" target="_blank" class="keyword">FRC (FIRST Robotics Competition)</a>, where I love tackling engineering challenges with my team. I also run my own <span class="keyword">hackathon club</span>, organizing events for high school students to build and showcase their ideas. On top of that, I help tutor students in the <a href="https://theauxilium.ca/" target="_blank" class="keyword">Auxilium program</a>, sharing my knowledge with others who are just getting started. At the end of the day, my goal is simple: <span class="keyword">build things that people will love and enjoy</span>—even if they seem a little useless at first. Some of the best projects come from unexpected ideas, and I’m always looking for new ways to bring them to life!
+                </p>
+          
+                <!-- Timeline Section -->
+                <div class="timeline">
+                  <div class="timeline-item" data-project="project1">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>2023 - <span class="keyword">School Management System</span></h4>
+                      <p>Developed a <span class="keyword">digital platform</span> for student resources</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item" data-project="project2">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>2022 - <span class="keyword">Community Food Bank App</span></h4>
+                      <p>Volunteer project connecting <span class="keyword">donors with shelters</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
             <a href="#about" class="read-more-btn">
-              Read More About Me
-              <i class="ri-arrow-down-line"></i>
+              <span>Read More About Me</span>
+              <i class="ri-arrow-down-line arrow"></i>
             </a>
           </div>
         </div>
       </div>
-  
+
+
+
       <div class="action-cards">
-        <a href="https://github.com/ElliottStarosta" target="_blank" class="action-card github-card">
+        <a href="https://github.com/ElliottStarosta" target="_blank" class="action-card github-card"
+          data-aos="fade-right" data-aos-delay="500">
           <i class="ri-github-fill"></i>
           <span>GitHub</span>
         </a>
-        <a href="#projects" class="action-card projects-card">
+        <a href="#projects" class="action-card projects-card" data-aos="fade-right" data-aos-delay="750">
           <i class="ri-code-box-fill"></i>
           <span>Projects</span>
         </a>
       </div>
     </div>
 
-  </div>
+    </div>
   </section>
-  
+
 
   <section class="about-me">
 
@@ -86,9 +128,10 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-  integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <script src="src/main.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
+
 </html>
