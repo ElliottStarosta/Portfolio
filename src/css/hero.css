@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  background: var(--primary-color);
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-card {
+  background: rgba(30, 42, 56, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(228, 237, 248, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem;
+  max-width: 800px;
+
+}
+
+
+.action-cards {
+transition: all 1s;
+will-change: transform, opacity;
+transform: translateX(-150%); /* Off-screen to the left */
+opacity: 0; /* Completely invisible */
+filter: blur(5px);
+}
+
+
+/* Initial hidden state */
+.action-cards.hidden {
+opacity: 0;
+transform: translateX(-150%);
+}
+
+
+/* Visible state - MUST come after .hidden in CSS */
+.action-cards.show {
+opacity: 1;
+transform: translateX(0);
+}
+
+
+.greeting {
+  font-family: var(--supreme);
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+}
+
+.greeting-text {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.name {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 600;
+  position: relative;
+  line-height: 1.1;
+}
+
+.exclamation {
+  color: var(--lighten-blue);
+}
+
+.description-box {
+  margin: 2rem 0;
+}
+
+.about-text {
+  font-family: var(--hind);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 2rem;
+  border-radius: 0.8rem;
+  background: rgba(228, 237, 248, 0.05);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-family: var(--nunito);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 1px solid rgba(228, 237, 248, 0.1);
+}
+
+.read-more-btn:hover {
+  background: rgba(228, 237, 248, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.read-more-btn i {
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover i {
+  transform: translateY(3px);
+}
+
+.action-cards {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.action-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 0.8rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: rgba(30, 42, 56, 0.6);
+  border: 1px solid rgba(228, 237, 248, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.action-card span {
+  font-family: var(--supreme);
+  font-weight: 500;
+}
+
+.github-card {
+  color: var(--accent-color);
+}
+
+.projects-card {
+  color: var(--primary-color-lighten);
+}
+
+.action-card:hover {
+  border-color: var(--primary-color-lighten);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.action-card i {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.action-card:hover i {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 1.5rem;
+  }
+ 
+  .name {
+    font-size: 2.5rem;
+  }
+ 
+  .about-text {
+    font-size: 1rem;
+  }
+ 
+  .action-cards {
+    flex-direction: column;
+  }
+ 
+}
