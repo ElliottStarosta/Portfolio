@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   AOS.init({
     duration: 1000,  // Duration of the animation
     easing: 'ease-out',
-    once: false  // Ensures the animation runs each time the element enters the viewport
+    once: true  // Ensures the animation runs each time the element enters the viewport
   });
 });
 
@@ -180,7 +180,6 @@ document.querySelectorAll('header ul li').forEach(menuItem => {
 
 // Logo
 
-
 const logo = document.querySelector('.logo');
 let raf;
 
@@ -255,34 +254,6 @@ document.querySelector('.read-more-btn').addEventListener('click', function(e) {
   arrowIcon.classList.toggle('ri-arrow-up-line');
 });
 
-// Handle timeline item clicks
-document.querySelectorAll('.timeline-item').forEach(item => {
-  item.addEventListener('click', function() {
-    const projectId = this.dataset.project;
-    const projectSection = document.getElementById(projectId);
-    
-    if (projectSection) {
-      projectSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
 
-// Handle keyword clicks
-document.querySelectorAll('.keyword[data-project]').forEach(keyword => {
-  keyword.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent default link behavior
-    const projectId = this.dataset.project;
-    const projectSection = document.getElementById(projectId);
-    
-    if (projectSection) {
-      projectSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
+
 

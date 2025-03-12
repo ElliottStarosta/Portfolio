@@ -77,6 +77,7 @@ header .logo::after {
 
 
 header .logo:hover {
+  cursor: pointer;
   color: transparent; /* Hide primary color text on hover */
 }
 

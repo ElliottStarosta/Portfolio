@@ -313,7 +313,13 @@ a.keyword {
 
 /* Expanded Text Keyword Delays */
 .expanded-text.e1 .keyword:nth-of-type(1) { --anim-delay: 0s; } /* "Hello, World!" */
-.expanded-text.e1 .keyword:nth-of-type(2) { --anim-delay: 0.2s; } /* EOM Course Recommender */
+.expanded-text.e1 .keyword:nth-of-type(2) { 
+  --anim-delay: 0.2s; 
+} /* EOM Course Recommender */
+
+.expanded-text.e1 .keyword:nth-of-type(2)::before {
+  background: var(--project-gradient) !important; /* Force override */
+}
 
 .expanded-text.e2 a.keyword:nth-of-type(1) { --anim-delay: 0s; } /* FRC */
 .expanded-text.e2 .keyword:nth-of-type(1) { --anim-delay: 0.3s; } /* hackathon club */
@@ -321,58 +327,6 @@ a.keyword {
 .expanded-text.e2 .keyword:nth-of-type(2) { --anim-delay: 0.7s; } /* build things that people will love and enjoy */
 
 
-/* Timeline */
-
-.timeline { --anim-delay: 0.4s; }
-
-
-/* Timeline Styles */
-.timeline {
-  position: relative;
-  margin: 2rem 0;
-  padding-left: 2rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: rgba(228, 237, 248, 0.1);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: rgba(30, 42, 56, 0.6);
-  border-radius: 0.8rem;
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  width: 75%;
-}
-
-.timeline-item:hover {
-  border-color: var(--lighten-blue);
-  transform: translateX(10px);
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -26px;
-  top: 1.2rem;
-  width: 12px;
-  height: 12px;
-  background: var(--lighten-blue);
-  border-radius: 50%;
-}
-
-
-.timeline-item[data-project="project1"] h4 .keyword { --anim-delay: 0s; }
-.timeline-item[data-project="project1"] p .keyword { --anim-delay: 3s; }
 
 /* Floating animation */
 @keyframes float {

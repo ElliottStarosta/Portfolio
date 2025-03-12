@@ -27,10 +27,39 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(to bottom,
-      var(--lighten-blue),
-      rgba(228, 237, 248, 0.2));
+  background: linear-gradient(
+    to bottom,
+    var(--lighten-blue),
+    rgba(228, 237, 248, 0.2)
+  );
   transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.timeline-path::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(
+    to bottom,
+    rgba(228, 237, 248, 0),
+    rgba(228, 237, 248, 0.4),
+    rgba(228, 237, 248, 0)
+  );
+  animation: lightBeam 3s ease-in-out infinite;
+  top: -60%;
+  left: 0;
+  filter: blur(2px);
+}
+
+@keyframes lightBeam {
+  0% {
+    top: -60%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 .timeline-item {
@@ -105,11 +134,11 @@
 }
 
 .timeline-item:nth-child(odd) .timeline-marker {
-  left: -27px;
+  left: -25px;
 }
 
 .timeline-item:nth-child(even) .timeline-marker {
-  right: -60px;
+  left: 319px;
 }
 
 .project-preview {
@@ -140,6 +169,10 @@
 }
 
 
+/* Modal */
+
+
+
 
 .pulse-effect {
   position: absolute;
@@ -163,9 +196,29 @@
   border-radius: 1rem;
   font-size: 0.9rem;
   font-family: var(--supreme);
-  transition: transform 0.3s ease, 
-             opacity 0.2s ease;
-  opacity: 0.8;
+  color: var(--accent-color);
+  font-weight: 300;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(228, 237, 248, 0.05);
+  cursor: none;
+}
+
+.modal-tech .tech-tag {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modal-tech .tech-tag:hover {
+  color: var(--lighten-blue);
+  transform: translateY(-1px);
+}
+
+
+.tech-tag:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 .timeline-content h3::after {
@@ -200,7 +253,7 @@
   }
 
   .timeline-marker {
-    left: -60px !important;
+    left: -25px !important;
     right: auto !important;
   }
 
@@ -208,5 +261,5 @@
     left: 30px;
   }
 
-  .project-preview { display: none; }
+  /* .project-preview { display: none; } */
 }
