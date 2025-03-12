@@ -1,17 +1,19 @@
-@import './header.css';
-@import './hero.css';
+@import "./header.css";
+@import "./hero.css";
+@import "./projects.css";
+
 :root {
-  --supreme: 'Supreme', sans-serif;
-  --nunito: 'Nunito', sans-serif;
-  --amulya: 'Amulya', sans-serif;
-  --hind: 'Hind', sans-serif;
-  --bebas: 'Bebas Neue', sans-serif;
+  --supreme: "Supreme", sans-serif;
+  --nunito: "Nunito", sans-serif;
+  --amulya: "Amulya", sans-serif;
+  --hind: "Hind", sans-serif;
+  --bebas: "Bebas Neue", sans-serif;
 
-  --primary-color: #1E2A38;
+  --primary-color: #1e2a38;
   --accent-color: #e4edf8;
-  --secondary-color: #4B5B6A;
+  --secondary-color: #4b5b6a;
 
-  --dark-blue: #26364A;
+  --dark-blue: #26364a;
   --light-blue: #3d5675;
   --lighten-blue: #6ea8f0;
 
@@ -26,10 +28,10 @@
   /*========== Colors ==========*/
 
   --primary-color-light: #566273;
-  --primary-color-lighten: #3A4755;
+  --primary-color-lighten: #3a4755;
   --white-color: #fff;
 
-  --normal-font-size: .938rem;
+  --normal-font-size: 0.938rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -44,7 +46,8 @@
   --ease-out-quad: cubic-bezier(0.25, 1, 0.5, 1);
 
   /*========== shadows ==========*/
-  --subtle-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.05);
+  --subtle-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1),
+    0 0 5px rgba(0, 0, 0, 0.05);
 }
 html {
   width: 100%;
@@ -59,18 +62,19 @@ html::before {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 
 body {
-    min-height: 100vh;
-    margin: 0 auto;
-    background-color: var(--primary-color);
-    font-family: var(--mukta);
-    overflow-x: hidden;
-
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  font-family: var(--mukta);
 }

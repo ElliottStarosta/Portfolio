@@ -12,6 +12,7 @@
 /* ===== Hero Layout ===== */
 
 .hero-content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 4rem; /* Space between columns */
@@ -24,16 +25,12 @@
 .hero-left {
   flex: 0 0 75%; /* Takes 75% width */
   max-width: 75%;
-  /* background-color: red; */
 }
 
 .hero-right {
   flex: 0 0 25%; /* Takes 25% width */
   max-width: 25%;
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  /* background-color: red; */
+  position: relative;
 }
 
 /* ===== Hero Card Components ===== */
@@ -213,23 +210,20 @@
 
 /* Image */
 .floating-image {
-  position: relative;
-  top: -10%; 
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
-  max-width: 300px;
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
-
 .floating-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  object-position: center;
   border-radius: 1.5rem;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -312,7 +306,7 @@ a.keyword {
 }
 
 /* Expanded Text Keyword Delays */
-.expanded-text.e1 .keyword:nth-of-type(1) { --anim-delay: 0s; } /* "Hello, World!" */
+.expanded-text.e1 .keyword:nth-of-type(1) { --anim-delay: 0s; --color-of-highlight:  red; } /* "Hello, World!" */
 .expanded-text.e1 .keyword:nth-of-type(2) { --anim-delay: 0.2s; } /* EOM Course Recommender */
 
 .expanded-text.e2 a.keyword:nth-of-type(1) { --anim-delay: 0s; } /* FRC */
@@ -387,39 +381,6 @@ a.keyword {
 
 /* ===== Media ===== */
 
-@media (max-width: 1350px) {
-  .floating-image {
-    max-width: 250px; /* Adjust maximum size for smaller screens */
-  }
-  .hero-content {
-
-    gap: 1.2rem; /* Space between columns */
-  }
-}
-
-@media (max-width: 1300px) {
-
-  .floating-image {
-    max-width: 250px; /* Adjust maximum size for smaller screens */
-  }
-}
-
-
-@media (max-width: 1200px) {
-  .floating-image {
-    display: none;
-  }
-  .hero-left {
-    flex: 0 0 120%; 
-    max-width: 120%;
-    /* background-color: red; */
-  }
-
-  .hero-card {
-    max-width: 84%;
-  }
-}
-
 @media (max-width: 768px) {
   /* Hero Layout Adjustments */
   .hero-content {
@@ -436,7 +397,6 @@ a.keyword {
   /* Card & Text Adjustments */
   .hero-card {
     padding: 1.5rem;
-    max-width: 100%;
   }
 
   .name {
@@ -481,4 +441,3 @@ a.keyword {
     width: 80%;
   }
 }
-
