@@ -55,7 +55,7 @@ window.addEventListener('scroll', () => {
 
 // Scroll to top functionality
 scrollButton.addEventListener('click', () => {
-  scrollToTop();
+  scrollTo();
   header.classList.remove('header-hidden');
   scrollButton.classList.remove('visible');
 });
@@ -74,7 +74,7 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
 
 
     // Call scrollToTop with the id
-    scrollToTop(id);
+    scrollTo(id);
 
 
     // Optional: Hide the header and scroll button after scroll
@@ -86,7 +86,7 @@ document.querySelectorAll('header ul li a').forEach(anchor => {
 
 
 
-function scrollToTop(id) {
+function scrollTo(id) {
   if (id) {
     const element = document.getElementById(id);
     if (element) {
@@ -104,6 +104,12 @@ function scrollToTop(id) {
     });
   }
 }
+
+document.querySelector('a.projects-card').addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent default anchor behavior
+  const id = this.getAttribute('href').substring(1); // Get the id from href
+  scrollTo(id); // Call the scrollToTop function
+});
 
 
 
