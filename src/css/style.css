@@ -32,6 +32,13 @@
     rgba(255, 170, 100, 0.3) 50%,  /* Soft pastel orange */
     rgba(255, 200, 150, 0.15) 100% /* Very light orange */
   );
+
+  --link-project-gradient: linear-gradient(
+    120deg,
+    rgba(150, 255, 197, 0.15) 0%,  /* Very light orange */
+    rgba(100, 255, 177, 0.3) 50%,  /* Soft pastel orange */
+    rgba(150, 255, 197, 0.15) 100% /* Very light orange */
+  );
   
 
   /*========== Colors ==========*/

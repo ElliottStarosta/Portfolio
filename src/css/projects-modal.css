@@ -84,11 +84,25 @@
   margin-bottom: 1.5rem;
 }
 
+
+
+
+
 .modal-tech {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
+
+
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(25, 97, 185, 0.2); }
+  50% { box-shadow: 0 0 12px rgba(52, 62, 151, 0.4); }
+}
+
+
 
 .github-link {
   display: inline-flex;
@@ -101,7 +115,12 @@
   border-radius: 0.8rem;
   border: 1px solid rgba(228, 237, 248, 0.15);
   transition: all 0.3s ease;
+
+  box-shadow: 0 0 8px rgba(228, 237, 248, 0.2);
+  animation:glow 5s ease-in-out infinite;
 }
+
+
 
 .github-link:hover,
 .website-link:hover {

@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', (e) => {
       const title = item.querySelector('h3').textContent;
       const subtitle = item.querySelector('p').textContent;
-      const techTags = [...item.querySelectorAll('.tech-tag')].map(tag => tag.cloneNode(true));
       const githubUrl = item.dataset.github;
       const websiteUrl = item.dataset.website;
+      const techTags = [...item.querySelectorAll('.tech-tag')].map(tag => tag.cloneNode(true));
       const longDesc = item.dataset.longDescription;
 
       // Populate modal
@@ -56,21 +56,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       modal.querySelector('.modal-title').textContent = title;
       modal.querySelector('.modal-subtitle').textContent = subtitle;
-      modalTech.replaceChildren(...techTags);
-      githubLink.href = githubUrl || '#';
-      websiteLink.href = websiteUrl || '#';
-      
+      modal.querySelector('.modal-description').textContent = longDesc;
+
+      // Toggle GitHub link visibility
+      if (githubUrl) {
+        githubLink.style.display = 'inline-flex';
+        githubLink.href = githubUrl;
+      } else {
+        githubLink.style.display = 'none';
+      }
+
       // Toggle website link visibility
-      if(websiteUrl) {
+      if (websiteUrl) {
         websiteLink.style.display = 'inline-flex';
-        websiteLink.innerHTML = '<i class="ri-external-link-line"></i> Website';
+        websiteLink.href = websiteUrl;
       } else {
         websiteLink.style.display = 'none';
       }
-      
-      modal.querySelector('.modal-description').textContent = longDesc;
-      openModal();
 
+      modalTech.replaceChildren(...techTags);
+      openModal();
     });
   });
 
@@ -83,16 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update the modal script
   function openModal() {
     modal.style.display = 'flex';
-    document.body.classList.add('modal-open'); // Add this
+    document.body.classList.add('modal-open');
     document.documentElement.style.overflow = 'hidden'; // For Firefox
   }
 
   function closeModal() {
     modal.style.display = 'none';
-    document.body.classList.remove('modal-open'); // Add this
+    document.body.classList.remove('modal-open');
     document.documentElement.style.overflow = ''; // For Firefox
   }
 });
+
 
 const techLinks = {
   html: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
