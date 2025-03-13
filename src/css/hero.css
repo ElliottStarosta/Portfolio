@@ -277,7 +277,7 @@ a.keyword {
   background: linear-gradient(
     120deg,
     rgba(200, 225, 255, 0.15) 0%,  /* Very light blue */
-    rgba(170, 200, 255, 0.3) 50%,  /* Soft pastel blue */
+    rgba(170, 200, 255, 0.65) 50%,  /* Soft pastel blue */
     rgba(200, 225, 255, 0.15) 100% /* Very light blue */
   );
 
