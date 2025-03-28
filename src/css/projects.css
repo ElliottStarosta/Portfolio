@@ -217,7 +217,7 @@
 
 .project-preview {
   position: fixed;
-  width: 300px;
+  width: 200px;
   height: auto;
   border-radius: 12px;
   overflow: hidden;
@@ -233,6 +233,7 @@
 .preview-image {
   position: relative;
   height: auto;
+
 }
 
 .preview-image img {
@@ -240,7 +241,6 @@
   height: 100%;
   object-fit: cover;
   opacity: 1;
-
   filter: blur(0.75px) brightness(0.85);
 }
 
@@ -351,5 +351,9 @@
 
   .project-preview {
     width: 250px;
+  }
+
+  .project-preview {
+    display: none;
   }
 }

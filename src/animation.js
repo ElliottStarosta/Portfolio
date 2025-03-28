@@ -41,56 +41,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Hover functionality
   timelineItems.forEach((item) => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    console.log("IsMobile " + isMobile);
+  
+    // Click handler for all devices
     item.addEventListener("click", (e) => {
       if (!e.target.closest('.timeline-link')) {
         const gitUrl = item.dataset.github;
         if (gitUrl) window.open(gitUrl, '_blank');
       }
     });
-
-    item.addEventListener("mouseenter", () => {
-      const img = item.dataset.image;
-      const title = item.dataset.title;
-      const desc = item.dataset.description;
-
-      preview.innerHTML = `
-        <div class="preview-image">
-          <img src="${img}" alt="Project Preview">
-          <div class="image-overlay"></div>
-        </div>
-        <div class="preview-meta">
-          <div class="preview-title">${title}</div>
-          <div class="preview-description">${desc}</div>
-        </div>
-      `;
-
-      // Set custom width if specified
-      if (item.dataset.previewWidth) {
-        preview.style.width = item.dataset.previewWidth;
-      } else {
-        preview.style.width = "300px"; // Default width
-      }
-
-      preview.style.opacity = "1";
-    });
-
-    item.addEventListener("mousemove", (e) => {
-      if (!isAnimating) {
-        requestAnimationFrame(() => {
-          preview.style.left = `${e.clientX + 30}px`;
-          preview.style.top = `${e.clientY + 30}px`;
-          preview.style.transform = `translate(0, 0) scale(1)`;
-          isAnimating = false;
-        });
-        isAnimating = true;
-      }
-    });
-
-    item.addEventListener("mouseleave", () => {
-      preview.style.opacity = "0";
-      preview.style.transform = `translate(-50%, -50%) scale(0.95)`;
-      preview.innerHTML = "";
-    });
+  
+    // Only add hover effects for desktop
+    if (!isMobile) {
+      item.addEventListener("mouseenter", () => {
+        const img = item.dataset.image;
+        const title = item.dataset.title;
+        const desc = item.dataset.description;
+  
+        preview.innerHTML = `
+          <div class="preview-image">
+            <img src="${img}" alt="Project Preview">
+            <div class="image-overlay"></div>
+          </div>
+          <div class="preview-meta">
+            <div class="preview-title">${title}</div>
+            <div class="preview-description">${desc}</div>
+          </div>
+        `;
+  
+        if (item.dataset.previewWidth) {
+          preview.style.width = item.dataset.previewWidth;
+        } else {
+          preview.style.width = "300px";
+        }
+  
+        preview.style.opacity = "1";
+      });
+  
+      item.addEventListener("mousemove", (e) => {
+        if (!isAnimating) {
+          requestAnimationFrame(() => {
+            preview.style.left = `${e.clientX + 30}px`;
+            preview.style.top = `${e.clientY + 30}px`;
+            preview.style.transform = `translate(0, 0) scale(1)`;
+            isAnimating = false;
+          });
+          isAnimating = true;
+        }
+      });
+  
+      item.addEventListener("mouseleave", () => {
+        preview.style.opacity = "0";
+        preview.style.transform = `translate(-50%, -50%) scale(0.95)`;
+        preview.innerHTML = "";
+      });
+    }
   });
 });
 
