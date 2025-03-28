@@ -1,0 +1,35 @@
+.site-footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  background-color: var(--primary-color);
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--accent-color);
+}
+
+.build-info {
+  font-size: 0.9em;
+  color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+.commit-hash {
+  font-family: monospace;
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.commit-hash:hover {
+  text-decoration: underline;
+  color: #1a4f8b;
+}
+
+#current-year {
+  font-weight: 500;
+}

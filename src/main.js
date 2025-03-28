@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   AOS.init({
     duration: 1000,  // Duration of the animation
     easing: 'ease-out',
-    once: true  // Ensures the animation runs each time the element enters the viewport
+    once: false  // Ensures the animation runs each time the element enters the viewport
   });
 });
 
@@ -180,6 +180,8 @@ document.querySelectorAll('header ul li').forEach(menuItem => {
     menuItem.style.removeProperty('--y');
   });
 });
+
+
 
 
 

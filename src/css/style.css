@@ -1,7 +1,10 @@
 @import "./header.css";
 @import "./hero.css";
 @import "./projects.css";
-@import "./projects-modal.css";
+/* @import "./projects-modal.css"; */
+@import "./footer.css";
+@import "./skills.css";
+@import "./contact.css";
 
 :root {
   --supreme: "Supreme", sans-serif;
@@ -17,6 +20,9 @@
   --dark-blue: #26364a;
   --light-blue: #3d5675;
   --lighten-blue: #6ea8f0;
+
+  --colorOne: #c2a14d;
+  --colorTwo: #b87429;
 
   --black-200: #020202;
   --black-300: #333333;
@@ -67,7 +73,7 @@
 }
 html {
   width: 100%;
-  height: 10000px;
+  /* height: 10000px; */
   overflow-x: hidden;
 }
 

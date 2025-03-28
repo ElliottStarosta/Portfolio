@@ -189,6 +189,69 @@ header ul li a.active {
   color: var(--primary-color);
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-quad);
+  background: transparent;
+  border: none;
+  padding: 10px;
+  z-index: 100;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s var(--ease-out-quad),
+              opacity 0.2s var(--ease-out-quad);
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  position: absolute;
+  left: 0;
+  transition: transform 0.4s var(--ease-out-quad);
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+/* Active State Animation */
+.hamburger.active .hamburger-inner {
+  transform: translateY(-50%) rotate(225deg);
+}
+
+.hamburger.active .hamburger-inner::before {
+  transform: translateY(8px) rotate(-90deg);
+}
+
+.hamburger.active .hamburger-inner::after {
+  transform: translateY(-8px) rotate(-90deg);
+  opacity: 0;
+}
+
 @media (max-width: 850px) {
   header {
     padding: 10px 30px;
@@ -225,5 +288,61 @@ header ul li a.active {
   }
   .scroll-to-top.visible {
     bottom: 15px;
+  }
+
+
+  header {
+    width: calc(100% - 40px);
+    top: 10px;
+    padding: 10px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  header ul {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 400px;
+    background: linear-gradient(135deg, 
+      rgba(30, 42, 56, 0.95), 
+      rgba(75, 91, 106, 0.95));
+    backdrop-filter: blur(20px);
+    border-radius: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s var(--ease-out-quad);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  header ul.active {
+    opacity: 1;
+    visibility: visible;
+    top: 80px;
+  }
+
+  header ul li {
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s var(--ease-out-quad);
+  }
+
+  header ul.active li {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.1s * var(--i));
+  }
+
+  header ul li a {
+    padding: 12px 25px;
+    font-size: 1.1rem;
   }
 }

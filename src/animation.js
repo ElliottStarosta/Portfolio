@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     typeProject.className = "timeline-type";
     typeProject.textContent = item.dataset.type || "";
 
+    
+
     // Append elements
     content.appendChild(date);
     content.appendChild(title);
@@ -102,17 +104,96 @@ document.querySelectorAll(".keyword[data-project]").forEach((keyword) => {
     // Find the matching timeline item
     const projectItem = document.querySelector(
       `.timeline-item[data-project="${projectId}"]`
-    );
+  );
+  console.log(projectItem);
 
     if (projectItem) {
       // Trigger the timeline item's click handler
       projectItem.click();
+    }
+  });
+});
 
-      // Optional: Scroll to modal (if needed)
-      document.querySelector(".project-modal").scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  // Calculate height for all timeline items
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  
+  timelineItems.forEach(item => {
+    const content = item.querySelector('.timeline-content');
+    const title = item.querySelector('.timeline-title');
+    
+    if (title && content) {
+      // Get the rendered height of the title element
+      const titleHeight = title.offsetHeight;
+      
+      // Calculate minimum content height (title height + buffer space)
+      const minHeight = titleHeight + 90; // Adjust buffer as needed
+      
+      // Set the minimum content height
+      content.style.minHeight = `${minHeight}px`;
+    }
+  });
+
+  // Optional: Update on window resize
+  window.addEventListener('resize', function() {
+    timelineItems.forEach(item => {
+      const content = item.querySelector('.timeline-content');
+      const title = item.querySelector('.timeline-title');
+      
+      if (title && content) {
+        const titleHeight = title.offsetHeight;
+        content.style.minHeight = `${titleHeight + 80}px`;
+      }
+    });
+  });
+});
+
+
+document.querySelectorAll('.skill-item').forEach(item => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const proficiency = item.getAttribute('data-proficiency');
+        item.querySelector('.progress-bar').style.width = `${proficiency}%`;
+      }
+    });
+  });
+  observer.observe(item);
+});
+
+// Add this script
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('header ul');
+  const navItems = document.querySelectorAll('header ul li');
+
+  // Toggle menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  // Close menu on scroll
+  window.addEventListener('scroll', () => {
+    if (hamburger.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  });
+
+  // Close menu when clicking a link
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Close menu on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
     }
   });
 });
